@@ -2,6 +2,12 @@ package lc;
 
 import lc.base.ListNode;
 
+/**
+ * 2. 两数相加(2)
+ * https://leetcode-cn.com/problems/add-two-numbers
+ * @author Terry
+ *
+ */
 public class N2 {
 
 	public static void main(String[] args) {

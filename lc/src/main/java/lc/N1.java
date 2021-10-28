@@ -4,6 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+/**
+ * 1. 两数之和(1)
+ * https://leetcode-cn.com/problems/two-sum
+ * @author Terry
+ *
+ */
 public class N1 {
 
     public static void main(String[] args) {

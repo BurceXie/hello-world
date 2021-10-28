@@ -1,5 +1,11 @@
 package lc;
 
+/**
+ * 3. 无重复字符的最长子串(2)
+ * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters
+ * @author Terry
+ *
+ */
 public class N3 {
 
 	public static void main(String[] args) {

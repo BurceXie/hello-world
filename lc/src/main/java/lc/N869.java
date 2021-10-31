@@ -4,6 +4,12 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * 869. 重新排序得到 2 的幂(2)
+ * https://leetcode-cn.com/problems/reordered-power-of-2/
+ * @author Terry
+ *
+ */
 public class N869 {
 
 	public static void main(String[] args) {

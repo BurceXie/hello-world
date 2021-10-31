@@ -5,6 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 638. 大礼包(2)
+ * https://leetcode-cn.com/problems/shopping-offers/
+ * @author Terry
+ *
+ */
 public class N638 {
 
 	public static void main(String[] args) {
@@ -18,6 +24,7 @@ public class N638 {
 	}
 
 class Solution {
+	// TODO
 	public int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
 		List<List<Integer>> usfulSpecial = new ArrayList<List<Integer>>();
 		for (List<Integer> spe : special) {

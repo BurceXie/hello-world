@@ -5,6 +5,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * 352. 将数据流变为多个不相交区间(3)
+ * https://leetcode-cn.com/problems/data-stream-as-disjoint-intervals/
+ * @author Terry
+ *
+ */
 public class N352 {
 
 	public static void main(String[] args) {

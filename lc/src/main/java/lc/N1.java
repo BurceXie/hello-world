@@ -3,6 +3,7 @@ package lc;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * 1. 两数之和(1)
@@ -18,7 +19,7 @@ public class N1 {
 		int[] nums = {3,2,4};
     	int target = 6;
     	
-    	IntStream.of(s.findTwoSum(nums, target)).sorted().forEach(System.out::println);
+    	IntStream.of(s.findTwoSum(nums, target)).sorted().map(Integer::valueOf).forEach(System.out::println);
 	}
     
     class Solution {

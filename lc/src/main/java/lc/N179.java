@@ -4,10 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class N174 {
+/**
+ * 179. 最大数(2)
+ * https://leetcode-cn.com/problems/largest-number/
+ * @author Terry
+ *
+ */
+public class N179 {
 
 	public static void main(String[] args) {
-		Solution s = new N174().new Solution();
+		Solution s = new N179().new Solution();
 
 		System.out.println(s.largestNumber(new int[] { 10, 2 }));
 		System.out.println(s.largestNumber(new int[] { 3, 30, 34, 5, 9 }));

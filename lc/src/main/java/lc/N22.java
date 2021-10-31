@@ -6,6 +6,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * 22. 括号生成(2)
+ * https://leetcode-cn.com/problems/generate-parentheses/
+ * @author Terry
+ *
+ */
 public class N22 {
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package w264;
+package lc;
 
 /**
  * 2048. 下一个更大的数值平衡数(2)
@@ -6,10 +6,10 @@ package w264;
  * @author Terry
  *
  */
-public class N5907 {
+public class N2048 {
 
 	public static void main(String[] args) {
-		Solution s = new N5907().new Solution();
+		Solution s = new N2048().new Solution();
 		
 	}
 

@@ -1,4 +1,4 @@
-package w264;
+package lc;
 
 import java.util.regex.Matcher;
 import java.util.stream.Stream;
@@ -9,10 +9,10 @@ import java.util.stream.Stream;
  * @author Terry
  *
  */
-public class N5906 {
+public class N2047 {
 
 	public static void main(String[] args) {
-		Solution s = new N5906().new Solution();
+		Solution s = new N2047().new Solution();
 		
 //		System.out.println(s.countValidWords("cat and  dog"));
 //		System.out.println(s.countValidWords("!this  1-s b8d! -"));

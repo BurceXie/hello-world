@@ -1,4 +1,4 @@
-package w264;
+package lc;
 
 /**
  * 2050. 并行课程 III(3)
@@ -6,10 +6,10 @@ package w264;
  * @author Terry
  *
  */
-public class N5909 {
+public class N2050 {
 
 	public static void main(String[] args) {
-		Solution s = new N5909().new Solution();
+		Solution s = new N2050().new Solution();
 		
 	}
 

@@ -5,6 +5,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 1436. 旅行终点站(1)
+ * https://leetcode-cn.com/problems/destination-city/
+ * @author Terry
+ *
+ */
 public class N1436 {
 
 	public static void main(String[] args) {

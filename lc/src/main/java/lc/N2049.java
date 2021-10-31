@@ -1,4 +1,4 @@
-package w264;
+package lc;
 
 /**
  * 2049. 统计最高分的节点数目(2)
@@ -6,10 +6,10 @@ package w264;
  * @author Terry
  *
  */
-public class N5908 {
+public class N2049 {
 
 	public static void main(String[] args) {
-		Solution s = new N5908().new Solution();
+		Solution s = new N2049().new Solution();
 
 		System.out.println(s.countHighestScoreNodes(new int[] {-1,2,0,2,0}));
 		System.out.println(s.countHighestScoreNodes(new int[] {-1,2,0}));

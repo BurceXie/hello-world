@@ -5,6 +5,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.function.IntConsumer;
 
+/**
+ * 1195. 交替打印字符串(2)
+ * https://leetcode-cn.com/problems/fizz-buzz-multithreaded/
+ * @author Terry
+ *
+ */
 public class N1195 {
 
 	public static void main(String[] args) {

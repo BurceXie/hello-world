@@ -1,5 +1,11 @@
 package lc;
 
+/**
+ * 165. 比较版本号(2)
+ * https://leetcode-cn.com/problems/compare-version-numbers/
+ * @author Terry
+ *
+ */
 public class N165 {
 
 	public static void main(String[] args) {

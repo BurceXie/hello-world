@@ -1,15 +1,18 @@
 package lc.ms17;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
+/**
+ *
+ *
+ */
 public class N14 {
 
 	public static void main(String[] args) {
 		Solution s = new N14().new Solution();
 
-		for (int num : s.smallestK(new int[] { 1, 2, 3, 4 }, 2)) {
-			System.out.println(num);
-		}
+		System.out.println(Arrays.toString(s.smallestK(new int[] { 1, 2, 3, 4 }, 2)));
 	}
 
 	class Solution {

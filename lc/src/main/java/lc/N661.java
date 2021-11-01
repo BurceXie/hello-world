@@ -1,5 +1,7 @@
 package lc;
 
+import java.util.Arrays;
+
 /**
  * 661. 图片平滑器(1)
  * https://leetcode-cn.com/problems/image-smoother/
@@ -11,7 +13,7 @@ public class N661 {
 	public static void main(String[] args) {
 		Solution s = new N661().new Solution();
 		
-		System.out.println(s.imageSmoother(new int[][] {{100,200,100},{200,50,200},{100,200,100}}));
+		System.out.println(Arrays.deepToString(s.imageSmoother(new int[][] {{100,200,100},{200,50,200},{100,200,100}})));
 	}
 
 class Solution {

@@ -7,8 +7,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 5898. 数组中第 K 个独一无二的字符串(1)
  * https://leetcode-cn.com/contest/biweekly-contest-64/problems/kth-distinct-string-in-an-array/
- * @author Terry
- *
  */
 public class N5898 {
 
@@ -33,12 +31,8 @@ class Solution {
     		}
     		set.add(s);
     	}
-    	
-    	if (list.size() < k) {
-    		return "";
-    	} else {
-    		return list.get(k - 1);
-    	}
+
+    	return list.size() < k ? "" : list.get(k - 1);
     }
 }
 }

@@ -15,15 +15,7 @@ public class N56 {
 //		int[][] intervals = new int[][] { { 2, 4 }, { 1, 7 } };
 //    	int[][] intervals = new int[][] {{1,1}};
 
-		for (int[] interval : intervals) {
-			System.out.println(Arrays.toString(interval));
-		}
-		System.out.println();
-
-		int[][] outInterval = s.merge(intervals);
-		for (int[] interval : outInterval) {
-			System.out.println(Arrays.toString(interval));
-		}
+		System.out.println(Arrays.deepToString(s.merge(intervals)));
 	}
 
 	class Solution {

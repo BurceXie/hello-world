@@ -1,13 +1,15 @@
 package lc;
 
+import java.util.Arrays;
+
 public class N66 {
 
 	public static void main(String[] args) {
 		Solution s = new N66().new Solution();
 		
-		System.out.println(s.plusOne(new int[] {1,2,3}));
-		System.out.println(s.plusOne(new int[] {9,9,9}));
-		System.out.println(s.plusOne(new int[] {0}));
+		System.out.println(Arrays.toString(s.plusOne(new int[] {1,2,3})));
+		System.out.println(Arrays.toString(s.plusOne(new int[] {9,9,9})));
+		System.out.println(Arrays.toString(s.plusOne(new int[] {0})));
 	}
 
 class Solution {

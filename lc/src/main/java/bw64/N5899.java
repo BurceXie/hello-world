@@ -1,14 +1,11 @@
 package bw64;
 
-import java.util.*;
-import java.util.stream.*;
-import static java.util.stream.Collectors.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 5899. 两个最好的不重叠活动(2)
  * https://leetcode-cn.com/contest/biweekly-contest-64/problems/two-best-non-overlapping-events/
- * @author Terry
- *
  */
 public class N5899 {
 
@@ -20,41 +17,47 @@ public class N5899 {
 
 class Solution {
     public int maxTwoEvents(int[][] events) {
+		long start = System.currentTimeMillis();
     	int maxValue = 0;
     	
-    	List<Integer> badList = new ArrayList<Integer>();
+    	Set<Integer> badSet = new HashSet<>();
     	for (int i = 0; i < events.length; i++) {
     		if (events[i][2] > maxValue) {
     			maxValue = events[i][2];
-    		}
+			}
     		for (int j = i + 1; j < events.length; j++) {
     			if (events[i][2] <= events[j][2] && events[i][0] <= events[j][0] && events[i][1] >= events[j][1]) {
-    				badList.add(i);
+					badSet.add(i);
     			}
     		}
     	}
+    	System.out.println(events.length + "\t" + badSet.size() + "\t" + badSet);
+		System.out.println(System.currentTimeMillis() - start);
+
+		int[][] goodEvents = new int[events.length - badSet.size()][];
+		for (int i = 0, j = 0; i < events.length; i++) {
+			if (!badSet.contains(Integer.valueOf(i))) {
+				goodEvents[j++] = events[i];
+			}
+		}
+		System.out.println(System.currentTimeMillis() - start);
     	
-    	for (int i = 0; i < events.length; i++) {
-    		if (badList.contains(Integer.valueOf(i))) {
-    			continue;
-    		}
-    		for (int j = i + 1; j < events.length; j++) {
-        		if (badList.contains(Integer.valueOf(j))) {
-        			continue;
-        		}
-    			if (events[i][2] + events[j][2] <= maxValue) {
+    	for (int i = 0; i < goodEvents.length; i++) {
+    		for (int j = i + 1; j < goodEvents.length; j++) {
+    			if (goodEvents[i][2] + goodEvents[j][2] <= maxValue) {
     				continue;
     			}
-    			if ((events[i][0] <= events[j][1] && events[i][1] >= events[j][0]) ||
-    					(events[j][0] <= events[i][1] && events[j][1] >= events[i][0])) {
+    			if ((goodEvents[i][0] <= goodEvents[j][1] && goodEvents[i][1] >= goodEvents[j][0]) ||
+    					(goodEvents[j][0] <= goodEvents[i][1] && goodEvents[j][1] >= goodEvents[i][0])) {
     				continue;
     			}
-    			int value = events[i][2] + events[j][2];
+    			int value = goodEvents[i][2] + goodEvents[j][2];
     			if (value > maxValue) {
     				maxValue = value;
     			}
     		}
     	}
+		System.out.println(System.currentTimeMillis() - start);
     	
     	return maxValue;
     }

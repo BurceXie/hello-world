@@ -1,21 +1,16 @@
 package lc;
 
+import java.util.Arrays;
+
 public class N492 {
 
 	public static void main(String[] args) {
 		Solution s = new N492().new Solution();
 		
-		int[] lAndw = s.constructRectangle(4);
-		System.out.println("[" + lAndw[0] + "," + lAndw[1] + "]");
-		
-		lAndw = s.constructRectangle(234);
-		System.out.println("[" + lAndw[0] + "," + lAndw[1] + "]");
-		
-		lAndw = s.constructRectangle(524);
-		System.out.println("[" + lAndw[0] + "," + lAndw[1] + "]");
-		
-		lAndw = s.constructRectangle(431434);
-		System.out.println("[" + lAndw[0] + "," + lAndw[1] + "]");
+		System.out.println(Arrays.toString(s.constructRectangle(4)));
+		System.out.println(Arrays.toString(s.constructRectangle(234)));
+		System.out.println(Arrays.toString(s.constructRectangle(524)));
+		System.out.println(Arrays.toString(s.constructRectangle(431434)));
 	}
 
 class Solution {

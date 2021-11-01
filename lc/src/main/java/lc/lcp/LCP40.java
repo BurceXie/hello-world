@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ *
+ *
+ */
 public class LCP40 {
 
 	public static void main(String[] args) {
@@ -33,8 +37,8 @@ class Solution {
 			}
 		}
 		for (int i = 0, j = 0; i + j < cnt;) {
-			boolean oddEnd = i >= oddList.size() - 1;
-			boolean evenEnd = j >= evenList.size() - 1;
+			boolean oddEnd = i >= (oddList.size() - 1);
+			boolean evenEnd = j >= (evenList.size() - 1);
 			if (oddEnd && evenEnd) {
 				if (i + j != cnt) {
 					score = 0;

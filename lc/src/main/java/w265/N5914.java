@@ -27,7 +27,7 @@ class Solution {
     		}
     	}
     	
-    	return i == nums.length ? -1 : i;
+    	return (i == nums.length) ? -1 : i;
     }
 }
 }

@@ -1,7 +1,5 @@
 package lc;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

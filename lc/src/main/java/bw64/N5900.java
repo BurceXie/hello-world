@@ -61,13 +61,14 @@ class Solution {
     }
     
     public int[] platesBetweenCandles2(String s, int[][] queries) {
-    	int[] plates = new int[queries.length], platesSinceFirstCandles = new int[s.length()];
+    	int[] plates = new int[queries.length];
     	int firstCandle = s.indexOf('|'), firstPlate = s.indexOf('*');
     	if (firstCandle == -1 || firstPlate == -1) {
     		return plates;
     	}
-    	
-    	int platesSincePrevCandle = 0, prevCandle = -1;
+
+		int[] platesSinceFirstCandlesF = new int[s.length()], platesSinceFirstCandlesT = new int[s.length()];
+    	int platesSincePrevCandle = 0, prevCandle = -1, suffCandle = platesSinceFirstCandlesT.length;
     	for (int i = 0; i < s.length(); i++) {
     		if (i == 0) {
     			if (s.charAt(i) == '|') {
@@ -76,29 +77,33 @@ class Solution {
     			continue;
     		}
     		if (s.charAt(i) == '|') {
-    			platesSinceFirstCandles[i] = platesSinceFirstCandles[i - 1] + platesSincePrevCandle;
+				platesSinceFirstCandlesT[i] = platesSinceFirstCandlesT[i - 1] + platesSincePrevCandle;
     			prevCandle = i;
     			platesSincePrevCandle = 0;
     		} else if (prevCandle == -1) {
-    			platesSinceFirstCandles[i] = 0;
+				platesSinceFirstCandlesT[i] = 0;
     		} else {
     			platesSincePrevCandle++;
-    			platesSinceFirstCandles[i] = platesSinceFirstCandles[i - 1];
+				platesSinceFirstCandlesT[i] = platesSinceFirstCandlesT[i - 1];
     		}
     	}
+    	for (int j = s.length() - 1; j >= 0; j--) {
+    		if (s.charAt(j) == '|') {
+				platesSinceFirstCandlesF[j] = platesSinceFirstCandlesT[j];
+				suffCandle = j;
+			} else if (suffCandle == platesSinceFirstCandlesT.length){
+    			platesSinceFirstCandlesF[j] = platesSinceFirstCandlesT[j];
+			} else {
+    			platesSinceFirstCandlesF[j] = platesSinceFirstCandlesT[suffCandle];
+			}
+		}
     	
     	for (int i = 0; i < queries.length; i++) {
     		int from = queries[i][0], to = queries[i][1];
-    		if (s.charAt(from) == '*') {
-    			from = s.indexOf('|', from);
-    		}
-    		if (s.charAt(to) == '*') {
-    			to = s.lastIndexOf('|', to);
-    		}
-    		System.out.println(from + "\t" + to + "\t" + platesSinceFirstCandles[to] + "\t" + platesSinceFirstCandles[from]);
-    		if (from < to) {
-    			plates[i] = platesSinceFirstCandles[to] - platesSinceFirstCandles[from];
-    		}
+    		System.out.println(from + "\t" + to + "\t" + platesSinceFirstCandlesT[to] + "\t" + platesSinceFirstCandlesF[from]);
+    		if (platesSinceFirstCandlesT[to] > platesSinceFirstCandlesF[from]) {
+				plates[i] = platesSinceFirstCandlesT[to] - platesSinceFirstCandlesF[from];
+			}
     	}
     	
 		return plates;

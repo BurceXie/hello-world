@@ -18,60 +18,15 @@ public class N5900 {
 		
 //		System.out.println(Arrays.toString(s.platesBetweenCandles("**|**|***|", new int[][] {{2,5},{5,9}})));
 		System.out.println(Arrays.toString(s.platesBetweenCandles("***|**|*****|**||**|*", new int[][] {{1,17},{4,5},{14,17},{5,11},{15,16}})));
-		System.out.println(Arrays.toString(s.platesBetweenCandles2("***|**|*****|**||**|*", new int[][] {{1,17},{4,5},{14,17},{5,11},{15,16}})));
 	}
 
 class Solution {
     public int[] platesBetweenCandles(String s, int[][] queries) {
-//    	long start = System.nanoTime();
-    	int[] plates = new int[queries.length];
-    	int firstCandle = s.indexOf('|'), lastCandle = s.lastIndexOf('|'), firstPlate = s.indexOf('*'), lastPlate = s.lastIndexOf('*');
-    	if (firstCandle == -1 || firstPlate == -1) {
-    		return plates;
-    	}
-//    	System.out.println(System.nanoTime() - start);
-    	
-    	for (int i = 0; i < queries.length; i++) {
-    		if (queries[i][0] > lastCandle || queries[i][0] > lastPlate) {
-    			plates[i] = 0;
-    			continue;
-    		}
-    		if (queries[i][1] < firstCandle || queries[i][1] < firstPlate) {
-    			plates[i] = 0;
-    			continue;
-    		}
-    		int c = 0;
-    		int f = queries[i][0], t = queries[i][1];
-    		while (f < t) {
-    			if (s.charAt(f) == '*') {
-    				f++;
-    			}
-    			if (s.charAt(t) == '*') {
-    				t--;
-    			}
-    			if (s.charAt(f) == '|' && s.charAt(t) == '|') {
-    				break;
-    			}
-    		}
-    		for (; f < t; f++) {
-    			if (s.charAt(f) == '*') {
-    				c++;
-    			}
-    		}
-    		plates[i] = c;
-    	}
-//		System.out.println(System.nanoTime() - start);
-		return plates;
-    }
-    
-    public int[] platesBetweenCandles2(String s, int[][] queries) {
-//		long start = System.nanoTime();
     	int[] plates = new int[queries.length];
     	int firstCandle = s.indexOf('|'), firstPlate = s.indexOf('*');
     	if (firstCandle == -1 || firstPlate == -1) {
     		return plates;
     	}
-//		System.out.println(System.nanoTime() - start);
 
 		int[] platesSinceFirstCandlesF = new int[s.length()], platesSinceFirstCandlesT = new int[s.length()];
     	int platesSincePrevCandle = 0, prevCandle = -1, suffCandle = platesSinceFirstCandlesT.length;
@@ -103,7 +58,6 @@ class Solution {
     			platesSinceFirstCandlesF[j] = platesSinceFirstCandlesT[suffCandle];
 			}
 		}
-//		System.out.println(System.nanoTime() - start);
     	
     	for (int i = 0; i < queries.length; i++) {
     		int from = queries[i][0], to = queries[i][1];
@@ -112,7 +66,6 @@ class Solution {
 				plates[i] = platesSinceFirstCandlesT[to] - platesSinceFirstCandlesF[from];
 			}
     	}
-//		System.out.println(System.nanoTime() - start);
     	
 		return plates;
     }

@@ -1,5 +1,6 @@
 package bw64;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,19 +20,85 @@ class Solution {
     public int maxTwoEvents(int[][] events) {
 		long start = System.currentTimeMillis();
     	int maxValue = 0;
+    	System.out.println(events.length);
     	
-    	Set<Integer> badSet = new HashSet<>();
+    	int badCount = 0;
     	for (int i = 0; i < events.length; i++) {
+    		boolean isBad = false;
     		if (events[i][2] > maxValue) {
     			maxValue = events[i][2];
 			}
     		for (int j = i + 1; j < events.length; j++) {
+    			if (events[j][2] == 0) {
+    				continue;
+    			}
     			if (events[i][2] <= events[j][2] && events[i][0] <= events[j][0] && events[i][1] >= events[j][1]) {
-					badSet.add(i);
+					badCount++;
+					isBad = true;
+					break;
+    			}
+    		}
+    		if (isBad) {
+    			events[i][2] = 0;
+    		}
+    	}
+		System.out.println(System.currentTimeMillis() - start);
+
+		int[][] goodEvents = new int[events.length - badCount][];
+		for (int i = 0, j = 0; i < events.length; i++) {
+			if (events[i][2] > 0) {
+				goodEvents[j++] = events[i];
+			}
+		}
+    	System.out.println(events.length + "\t" + badCount + "\t" + goodEvents.length);
+		System.out.println(System.currentTimeMillis() - start);
+    	
+    	for (int i = 0; i < goodEvents.length; i++) {
+    		for (int j = i + 1; j < goodEvents.length; j++) {
+    			if (goodEvents[i][2] + goodEvents[j][2] <= maxValue) {
+    				continue;
+    			}
+    			if ((goodEvents[i][0] <= goodEvents[j][1] && goodEvents[i][1] >= goodEvents[j][0]) ||
+    					(goodEvents[j][0] <= goodEvents[i][1] && goodEvents[j][1] >= goodEvents[i][0])) {
+    				continue;
+    			}
+    			int value = goodEvents[i][2] + goodEvents[j][2];
+    			if (value > maxValue) {
+    				maxValue = value;
     			}
     		}
     	}
-    	System.out.println(events.length + "\t" + badSet.size() + "\t" + badSet);
+		System.out.println(System.currentTimeMillis() - start);
+    	
+    	return maxValue;
+    }
+    
+    public int maxTwoEvents2(int[][] events) {
+		long start = System.currentTimeMillis();
+    	int maxValue = 0;
+    	System.out.println(events.length);
+    	
+    	Set<Integer> badSet = new HashSet<>();
+    	for (int i = 0; i < events.length; i++) {
+    		boolean isBad = false;
+    		if (events[i][2] > maxValue) {
+    			maxValue = events[i][2];
+			} 
+    		for (int j = i + 1; j < events.length; j++) {
+    			if (badSet.contains(Integer.valueOf(j))) {
+    				continue;
+    			}
+    			if (events[i][2] <= events[j][2] && events[i][0] <= events[j][0] && events[i][1] >= events[j][1]) {
+					isBad = true;
+					break;
+    			}
+    		}
+    		if (isBad) {
+				badSet.add(i);
+    			break;
+    		}
+    	}
+    	System.out.println(events.length + "\t" + badSet.size() + "\t" + (events.length - badSet.size()));
 		System.out.println(System.currentTimeMillis() - start);
 
 		int[][] goodEvents = new int[events.length - badSet.size()][];

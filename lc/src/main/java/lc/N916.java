@@ -8,6 +8,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * 916 单词子集(2)
+ * https://leetcode-cn.com/problems/word-subsets/
+ */
 public class N916 {
 
 	public static void main(String[] args) {

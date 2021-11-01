@@ -1,5 +1,9 @@
 package lc;
 
+/**
+ * 4. 寻找两个正序数组的中位数(3)
+ * https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
+ */
 public class N4 {
 
 	public static void main(String[] args) {

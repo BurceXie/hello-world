@@ -8,8 +8,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 5914. 值相等的最小索引(1)
  * https://leetcode-cn.com/contest/weekly-contest-265/problems/smallest-index-with-equal-value/
- * @author Terry
- *
  */
 public class N5914 {
 

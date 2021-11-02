@@ -5,8 +5,6 @@ import java.util.Arrays;
 /**
  * 661. 图片平滑器(1)
  * https://leetcode-cn.com/problems/image-smoother/
- * @author Terry
- *
  */
 public class N661 {
 

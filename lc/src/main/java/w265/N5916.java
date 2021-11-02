@@ -8,8 +8,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 5916. 转化数字的最小运算数(2)
  * https://leetcode-cn.com/contest/weekly-contest-265/problems/minimum-operations-to-convert-number/
- * @author Terry
- *
  */
 public class N5916 {
 

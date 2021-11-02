@@ -7,8 +7,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 837. 新21点(2)
  * https://leetcode-cn.com/problems/new-21-game/
- * @author Terry
- *
  */
 public class N837 {
 

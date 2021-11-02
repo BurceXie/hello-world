@@ -8,8 +8,6 @@ import java.util.stream.Collectors;
 /**
  * 638. 大礼包(2)
  * https://leetcode-cn.com/problems/shopping-offers/
- * @author Terry
- *
  */
 public class N638 {
 

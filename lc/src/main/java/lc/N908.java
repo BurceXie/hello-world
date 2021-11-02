@@ -7,8 +7,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 908. 最小差值 I(1)
  * https://leetcode-cn.com/problems/smallest-range-i/
- * @author Terry
- *
  */
 public class N908 {
 

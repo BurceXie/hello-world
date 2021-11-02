@@ -3,7 +3,6 @@ package lc;
 /**
  * 1629. 按键持续时间最长的键(1)
  * https://leetcode-cn.com/problems/slowest-key/
- * @author Terry
  *
  */
 public class N1629 {

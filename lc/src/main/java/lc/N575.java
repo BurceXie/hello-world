@@ -8,8 +8,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 575. 分糖果(1)
  * https://leetcode-cn.com/problems/distribute-candies/
- * @author Terry
- *
  */
 public class N575 {
 

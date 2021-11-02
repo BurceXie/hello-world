@@ -9,7 +9,6 @@ import java.util.stream.Stream;
 /**
  * 1370. 上升下降字符串(1)
  * https://leetcode-cn.com/problems/increasing-decreasing-string/
- * @author Terry
  *
  */
 public class N1370 {

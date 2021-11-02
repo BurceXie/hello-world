@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 /**
  * 179. 最大数(2)
  * https://leetcode-cn.com/problems/largest-number/
- * @author Terry
- *
  */
 public class N179 {
 

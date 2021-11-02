@@ -7,8 +7,7 @@ import static java.util.stream.Collectors.*;
 /**
  * 1449. 数位成本和为目标值的最大数字(3)
  * https://leetcode-cn.com/problems/form-largest-integer-with-digits-that-add-up-to-target/
- * @author Terry
- *
+ * *
  */
 public class N1149 {
 

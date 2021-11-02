@@ -8,7 +8,6 @@ import static java.util.stream.Collectors.*;
  * 5900. 蜡烛之间的盘子(2)
  * https://leetcode-cn.com/contest/biweekly-contest-64/problems/plates-between-candles/
  * https://leetcode-cn.com/problems/plates-between-candles/
- * @author Terry
  *
  */
 public class N5900 {

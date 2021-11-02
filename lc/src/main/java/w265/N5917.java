@@ -8,8 +8,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 5917. 同源字符串检测(3)
  * https://leetcode-cn.com/contest/weekly-contest-265/problems/check-if-an-original-string-exists-given-two-encoded-strings/
- * @author Terry
- *
  */
 public class N5917 {
 

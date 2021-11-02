@@ -9,7 +9,6 @@ import java.util.stream.Stream;
 /**
  * 1. 两数之和(1)
  * https://leetcode-cn.com/problems/two-sum
- * @author Terry
  *
  */
 public class N1 {

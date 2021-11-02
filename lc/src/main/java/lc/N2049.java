@@ -3,8 +3,6 @@ package lc;
 /**
  * 2049. 统计最高分的节点数目(2)
  * https://leetcode-cn.com/problems/count-nodes-with-the-highest-score/
- * @author Terry
- *
  */
 public class N2049 {
 

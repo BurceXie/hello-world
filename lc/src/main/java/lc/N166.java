@@ -6,8 +6,6 @@ import java.util.Objects;
 /**
  * 166. 分数到小数(2)
  * https://leetcode-cn.com/problems/fraction-to-recurring-decimal/
- * @author Terry
- *
  */
 public class N166 {
 

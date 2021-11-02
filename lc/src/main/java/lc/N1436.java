@@ -8,7 +8,6 @@ import java.util.Set;
 /**
  * 1436. 旅行终点站(1)
  * https://leetcode-cn.com/problems/destination-city/
- * @author Terry
  *
  */
 public class N1436 {

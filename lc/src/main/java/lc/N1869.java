@@ -7,8 +7,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 1869. 哪种连续子字符串更长(1)
  * https://leetcode-cn.com/problems/longer-contiguous-segments-of-ones-than-zeros/
- * @author Terry
- *
  */
 public class N1869 {
 

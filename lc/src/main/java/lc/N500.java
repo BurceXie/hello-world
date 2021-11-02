@@ -8,8 +8,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 500. 键盘行
  * https://leetcode-cn.com/problems/keyboard-row/
- * @author Terry
- *
  */
 public class N500 {
 

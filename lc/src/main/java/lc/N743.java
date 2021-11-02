@@ -8,8 +8,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 743. 网络延迟时间(2)
  * https://leetcode-cn.com/problems/network-delay-time/
- * @author Terry
- *
  */
 public class N743 {
 

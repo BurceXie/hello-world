@@ -3,8 +3,6 @@ package w264;
 /**
  * 2048. 下一个更大的数值平衡数(2)
  * https://leetcode-cn.com/problems/next-greater-numerically-balanced-number/
- * @author Terry
- *
  */
 public class N5907 {
 

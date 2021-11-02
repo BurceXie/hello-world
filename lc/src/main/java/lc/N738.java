@@ -7,8 +7,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 738. 单调递增的数字(2)
  * https://leetcode-cn.com/problems/monotone-increasing-digits/
- * @author Terry
- *
  */
 public class N738 {
 

@@ -10,8 +10,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 5915. 找出临界点之间的最小和最大距离(2)
  * https://leetcode-cn.com/contest/weekly-contest-265/problems/find-the-minimum-and-maximum-number-of-nodes-between-critical-points/
- * @author Terry
- *
  */
 public class N5915 {
 

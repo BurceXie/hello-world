@@ -5,8 +5,6 @@ import java.util.stream.Stream;
 /**
  * 1115. 交替打印FooBar(2)
  * https://leetcode-cn.com/problems/print-foobar-alternately/
- * @author Terry
- *
  */
 public class N1115 {
 

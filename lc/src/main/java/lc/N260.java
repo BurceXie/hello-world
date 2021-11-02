@@ -7,8 +7,6 @@ import static java.util.stream.Collectors.*;
 /**
  * 260. 只出现一次的数字 III(2)
  * https://leetcode-cn.com/problems/single-number-iii/
- * @author Terry
- *
  */
 public class N260 {
 

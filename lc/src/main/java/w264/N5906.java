@@ -6,8 +6,6 @@ import java.util.stream.Stream;
 /**
  * 2047. 句子中的有效单词数(1)
  * https://leetcode-cn.com/problems/number-of-valid-words-in-a-sentence/
- * @author Terry
- *
  */
 public class N5906 {
 

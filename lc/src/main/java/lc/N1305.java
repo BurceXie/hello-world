@@ -9,7 +9,6 @@ import lc.base.TreeNode;
 /**
  * 1305. 两棵二叉搜索树中的所有元素(2)
  * https://leetcode-cn.com/problems/all-elements-in-two-binary-search-trees/
- * @author Terry
  *
  */
 public class N1305 {

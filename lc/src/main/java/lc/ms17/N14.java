@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 
 /**
- *
- *
+ * 面试题17.14.最小 K 个数(2)
+ * https://leetcode-cn.com/problems/smallest-k-lcci/
  */
 public class N14 {
 

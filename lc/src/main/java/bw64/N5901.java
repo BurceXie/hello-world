@@ -17,9 +17,11 @@ public class N5901 {
 	}
 
 class Solution {
-//    public int countCombinations(String[] pieces, int[][] positions) {
-//
-//    }
+		// TODO
+    public int countCombinations(String[] pieces, int[][] positions) {
+
+    	return 0;
+    }
 }
 }
 

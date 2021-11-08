@@ -15,7 +15,7 @@ public class N5900 {
 	public static void main(String[] args) {
 		Solution s = new N5900().new Solution();
 		
-//		System.out.println(Arrays.toString(s.platesBetweenCandles("**|**|***|", new int[][] {{2,5},{5,9}})));
+		System.out.println(Arrays.toString(s.platesBetweenCandles("**|**|***|", new int[][] {{2,5},{5,9}})));
 		System.out.println(Arrays.toString(s.platesBetweenCandles("***|**|*****|**||**|*", new int[][] {{1,17},{4,5},{14,17},{5,11},{15,16}})));
 	}
 

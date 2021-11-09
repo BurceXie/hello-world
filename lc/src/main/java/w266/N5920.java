@@ -13,12 +13,7 @@ public class N5920 {
 	}
 
 class Solution {
-		// TODO
 	public int minimizedMaximum(int n, int[] quantities) {
-		return 0;
-	}
-
-	public int minimizedMaximum2(int n, int[] quantities) {
 		int left = 1, right = 100000;
 		while (left < right) {
 			int mid = (left + right) / 2;

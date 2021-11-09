@@ -1,7 +1,10 @@
 package w266;
 
-import java.util.Comparator;
-import java.util.stream.Stream;
+import com.google.common.base.Stopwatch;
+
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.stream.*;
 
 /**
  *5918. 统计字符串中的元音子字符串(1)
@@ -12,11 +15,17 @@ public class N5918 {
 	public static void main(String[] args) {
 		Solution s = new N5918().new Solution();
 
+		Stopwatch sw = Stopwatch.createStarted();
 		System.out.println(s.countVowelSubstrings("aeiou"));
+		System.out.println("sw: " + sw.elapsed(TimeUnit.MILLISECONDS));
 		System.out.println(s.countVowelSubstrings("unicornarihan"));
+		System.out.println("sw: " + sw.elapsed(TimeUnit.MILLISECONDS));
 		System.out.println(s.countVowelSubstrings("cuaieuouac"));
+		System.out.println("sw: " + sw.elapsed(TimeUnit.MILLISECONDS));
 		System.out.println(s.countVowelSubstrings("bbaeixoubb"));
+		System.out.println("sw: " + sw.elapsed(TimeUnit.MILLISECONDS));
 		System.out.println(s.countVowelSubstrings("duuebuaeeeeeeuaoeiueaoui"));
+		System.out.println("sw: " + sw.elapsed(TimeUnit.MILLISECONDS));
 	}
 
 class Solution {

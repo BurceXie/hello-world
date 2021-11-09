@@ -1,10 +1,9 @@
 package lc;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import com.google.common.base.Stopwatch;
+
+import java.util.*;
+import java.util.concurrent.*;
 
 /**
  * 1. 两数之和(1)
@@ -15,8 +14,10 @@ public class N1 {
 
     public static void main(String[] args) {
     	Solution s = new N1().new Solution();
-		
-    	System.out.println(Arrays.toString(s.findTwoSum(new int[] {3,2,4}, 6)));
+
+	    Stopwatch sw = Stopwatch.createStarted();
+	    System.out.println(Arrays.toString(s.findTwoSum(new int[] {3,2,4}, 6)));
+	    System.out.println("sw: " + sw.elapsed(TimeUnit.MILLISECONDS));
 	}
     
     class Solution {

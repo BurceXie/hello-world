@@ -1,6 +1,9 @@
 package bw64;
 
+import com.google.common.base.Stopwatch;
+
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.stream.*;
 import static java.util.stream.Collectors.*;
 
@@ -14,9 +17,13 @@ public class N5900 {
 
 	public static void main(String[] args) {
 		Solution s = new N5900().new Solution();
-		
+
+
+		Stopwatch sw = Stopwatch.createStarted();
 		System.out.println(Arrays.toString(s.platesBetweenCandles("**|**|***|", new int[][] {{2,5},{5,9}})));
+		System.out.println("sw: " + sw.elapsed(TimeUnit.MILLISECONDS));
 		System.out.println(Arrays.toString(s.platesBetweenCandles("***|**|*****|**||**|*", new int[][] {{1,17},{4,5},{14,17},{5,11},{15,16}})));
+		System.out.println("sw: " + sw.elapsed(TimeUnit.MILLISECONDS));
 	}
 
 class Solution {

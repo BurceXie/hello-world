@@ -1,9 +1,8 @@
 package alc;
 
-import java.util.*;
-import java.util.stream.*;
+import com.google.common.base.Stopwatch;
 
-import static java.util.stream.Collectors.*;
+import java.util.concurrent.*;
 
 /**
  *
@@ -14,7 +13,9 @@ public class N {
 	public static void main(String[] args) {
 		Solution s = new N().new Solution();
 
+		Stopwatch sw = Stopwatch.createStarted();
 		System.out.println(s);
+		System.out.println("sw: " + sw.elapsed(TimeUnit.MILLISECONDS));
 	}
 
 class Solution {

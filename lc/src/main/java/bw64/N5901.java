@@ -1,8 +1,8 @@
 package bw64;
 
-import java.util.*;
-import java.util.stream.*;
-import static java.util.stream.Collectors.*;
+import com.google.common.base.Stopwatch;
+
+import java.util.concurrent.*;
 
 /**
  * 5901. 棋盘上有效移动组合的数目
@@ -12,8 +12,10 @@ public class N5901 {
 
 	public static void main(String[] args) {
 		Solution s = new N5901().new Solution();
-		
-//		System.out.println(s.test());
+
+		Stopwatch sw = Stopwatch.createStarted();
+		System.out.println(s);
+		System.out.println("sw: " + sw.elapsed(TimeUnit.MILLISECONDS));
 	}
 
 class Solution {

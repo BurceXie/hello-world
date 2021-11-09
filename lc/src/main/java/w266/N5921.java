@@ -15,12 +15,7 @@ public class N5921 {
 	}
 
 class Solution {
-		// TODO
 	public int maximalPathQuality(int[] values, int[][] edges, int maxTime) {
-		return 0;
-	}
-
-	public int maximalPathQuality2(int[] values, int[][] edges, int maxTime) {
 		ArrayList<int[]>[] list = new ArrayList[values.length];
 		for (int i = 0; i < values.length; i++) {
 			list[i] = new ArrayList<>();

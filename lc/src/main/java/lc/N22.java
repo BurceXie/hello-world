@@ -1,10 +1,6 @@
 package lc;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  * 22. 括号生成(2)
@@ -13,77 +9,51 @@ import java.util.stream.Collectors;
 public class N22 {
 
 	public static void main(String[] args) {
-		Solution s = new N22().new Solution();
+		Solution s = new Solution();
 
 		for (int i = 1; i <= 8; i++) {
-			List<String> l = s.generateParenthesis2(i);
+			List<String> l = s.generateParenthesis(i);
 			System.out.println(l.size());
 			System.out.println(l);
 		}
 	}
 
-	class Solution {
-		
-		// TODO
+	static class Solution {
 		public List<String> generateParenthesis(int n) {
-			Set<String> set = generateParenthesisSet(n);
-			return set.stream().sorted().filter(s -> {
-				int k = 0;
-				for (int i = 0; i < s.length(); i++) {
-					if (k < 0) {
-						return false;
-					} else if (s.charAt(i) == '(') {
-						k++;
-					} else {
-						k--;
-					}
+			List<String> list = new ArrayList<>();
+			list.add("(");
+			doRight(list, n, 1, 0);
+
+			return list;
+		}
+
+		private List<String> doRight(List<String> leftList, int n, int lCount, int rCount) {
+			if (rCount == n) {
+				return leftList;
+			}
+			if (lCount == n) {
+				String rightStr = "))))))))".substring(rCount, n);
+
+				for (int i = 0; i < leftList.size(); i++) {
+					leftList.set(i, leftList.get(i) + rightStr);
 				}
-				return k == 0;
-			}).collect(Collectors.toList());
-		}
 
-		public Set<String> generateParenthesisSet(int n) {
-			Set<String> set = new HashSet<>();
-			if (n == 1) {
-				set.add("()");
-				set.add(")(");
-				return set;
+				return leftList;
 			}
 
-			Set<String> subSet = generateParenthesisSet(n - 1);
-			subSet.stream().forEach(s -> {
-				set.add("()" + s);
-				set.add("(" + s + ")");
-				set.add(s + "()");
-				set.add(")" + s + "(");
-			});
-			return set;
-		}
-
-		ArrayList[] cache = new ArrayList[100];
-
-		public List<String> generate(int n) {
-			if (cache[n] != null) {
-				return cache[n];
+			List<String> leftList1 = new ArrayList<>(), leftList2 = new ArrayList<>();
+			for (String leftStr : leftList) {
+				leftList1.add(leftStr + "(");
+				leftList2.add(leftStr + ")");
 			}
-			ArrayList<String> ans = new ArrayList<String>();
-			if (n == 0) {
-				ans.add("");
-			} else {
-				for (int c = 0; c < n; ++c) {
-					for (String left : generate(c)) {
-						for (String right : generate(n - 1 - c)) {
-							ans.add("(" + left + ")" + right);
-						}
-					}
-				}
-			}
-			cache[n] = ans;
-			return ans;
-		}
 
-		public List<String> generateParenthesis2(int n) {
-			return generate(n).stream().sorted().collect(Collectors.toList());
+			leftList.clear();
+			leftList.addAll(doRight(leftList1, n, lCount + 1, rCount));
+			if (rCount < lCount) {
+				leftList.addAll(doRight(leftList2, n, lCount, rCount + 1));
+			}
+
+			return leftList;
 		}
 	}
 }

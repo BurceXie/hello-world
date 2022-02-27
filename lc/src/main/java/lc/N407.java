@@ -9,103 +9,102 @@ import java.util.*;
 public class N407 {
 
 	public static void main(String[] args) {
-		Solution s = new N407().new Solution();
+		Solution s = new Solution();
 
-		System.out.println(s.trapRainWaterGf(new int[][] {{1, 4, 3, 1, 3, 2}, {3, 2, 1, 3, 2, 4}, {3, 3, 3, 1, 3, 2}}));
-		System.out.println(s.trapRainWaterGf(new int[][] {{3, 3, 3, 3, 3}, {3, 2, 2, 2, 3}, {3, 2, 1, 2, 3}, {3, 2, 2, 2, 3}, {3, 3, 3, 3, 3}}));
+		System.out.println(s.trapRainWater(new int[][] {{1, 4, 3, 1, 3, 2}, {3, 2, 1, 3, 2, 4}, {3, 3, 3, 1, 3, 2}}));
+		System.out.println(s.trapRainWater(new int[][] {{3, 3, 3, 3, 3}, {3, 2, 2, 2, 3}, {3, 2, 1, 2, 3}, {3, 2, 2, 2, 3}, {3, 3, 3, 3, 3}}));
 	}
 
-	class Solution {
-		// TODO
-		public int trapRainWater(int[][] heightMap) {
-			// 行或列小于3都不能接到雨水
-			int m = heightMap.length, n = heightMap[0].length;
-			if (heightMap.length < 3) {
-				return 0;
-			} else if (heightMap[0].length < 3) {
-				return 0;
-			}
-
-			// 找出最高点的高度和最低点的高度
-			int highest = 0, lowest = 0;
-			for (int[] row: heightMap) {
-				for (int h: row) {
-					if (h > highest) {
-						highest = h;
-					} else if (h < lowest) {
-						lowest = h;
-					}
-				}
-			}
-
-			// 从最高点往下找,每一层判断是否可以接雨水,如果可以直接统计这些点的雨水量,并加入忽略(将高度设成-1)
-			int water = 0;
-			for (int h = highest; h >= lowest; h--) {
-				water += computeWater(heightMap, h);
-			}
-
-			return water;
+static class Solution {
+	public int trapRainWater(int[][] heightMap) {
+		// 行或列小于3都不能接到雨水
+		int m = heightMap.length, n = heightMap[0].length;
+		if (heightMap.length < 3) {
+			return 0;
+		} else if (heightMap[0].length < 3) {
+			return 0;
 		}
 
-		public int computeWater(int[][] heightMap, int h) {
-			int water = 0;
-
-
-			return water;
+		int sum = 0;
+		boolean[][] dealed = new boolean[m][n];
+		PriorityQueue<WaterBuilding> queue = new PriorityQueue<>();
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (i > 0 && i < m - 1 && j > 0 && j < n - 1) {
+					continue;
+				}
+				WaterBuilding wb = new WaterBuilding(i, j, heightMap[i][j], heightMap[i][j]);
+				queue.add(wb);
+				dealed[i][j] = true;
+			}
 		}
 
-		public int trapRainWaterGf(int[][] heightMap) {
-			int m = heightMap.length;
-			int n = heightMap[0].length;
-			int[] dirs = {-1, 0, 1, 0, -1};
-			int maxHeight = 0;
+		while (!queue.isEmpty()) {
+			WaterBuilding wb = queue.poll();
 
-			for (int i = 0; i < m; ++i) {
-				for (int j = 0; j < n; ++j) {
-					maxHeight = Math.max(maxHeight, heightMap[i][j]);
+			if (isLegal(wb.x - 1, wb.y, m, n) && !dealed[wb.x - 1][wb.y]) {
+				WaterBuilding wbUp = new WaterBuilding(wb.x - 1, wb.y, heightMap[wb.x - 1][wb.y], heightMap[wb.x - 1][wb.y]);
+				if (wb.w > wbUp.h) {
+					wbUp.w = wb.w;
+					sum += (wbUp.w - wbUp.h);
 				}
+				dealed[wbUp.x][wbUp.y] = true;
+				queue.add(wbUp);
 			}
-			int[][] water = new int[m][n];
-			for (int i = 0; i < m; ++i) {
-				for (int j = 0; j < n; ++j){
-					water[i][j] = maxHeight;
+			if (isLegal(wb.x + 1, wb.y, m, n) && !dealed[wb.x + 1][wb.y]) {
+				WaterBuilding wbDown = new WaterBuilding(wb.x + 1, wb.y, heightMap[wb.x + 1][wb.y], heightMap[wb.x + 1][wb.y]);
+				if (wb.w > wbDown.h) {
+					wbDown.w = wb.w;
+					sum += (wbDown.w - wbDown.h);
 				}
+				dealed[wbDown.x][wbDown.y] = true;
+				queue.add(wbDown);
 			}
-			Queue<int[]> qu = new LinkedList<>();
-			for (int i = 0; i < m; ++i) {
-				for (int j = 0; j < n; ++j) {
-					if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
-						if (water[i][j] > heightMap[i][j]) {
-							water[i][j] = heightMap[i][j];
-							qu.offer(new int[]{i, j});
-						}
-					}
+			if (isLegal(wb.x, wb.y - 1, m, n) && !dealed[wb.x][wb.y - 1]) {
+				WaterBuilding wbLeft = new WaterBuilding(wb.x, wb.y - 1, heightMap[wb.x][wb.y - 1], heightMap[wb.x][wb.y - 1]);
+				if (wb.w > wbLeft.h) {
+					wbLeft.w = wb.w;
+					sum += (wbLeft.w - wbLeft.h);
 				}
+				dealed[wbLeft.x][wbLeft.y] = true;
+				queue.add(wbLeft);
 			}
-			while (!qu.isEmpty()) {
-				int[] curr = qu.poll();
-				int x = curr[0];
-				int y = curr[1];
-				for (int i = 0; i < 4; ++i) {
-					int nx = x + dirs[i], ny = y + dirs[i + 1];
-					if (nx < 0 || nx >= m || ny < 0 || ny >= n) {
-						continue;
-					}
-					if (water[x][y] < water[nx][ny] && water[nx][ny] > heightMap[nx][ny]) {
-						water[nx][ny] = Math.max(water[x][y], heightMap[nx][ny]);
-						qu.offer(new int[]{nx, ny});
-					}
+			if (isLegal(wb.x, wb.y + 1, m, n) && !dealed[wb.x][wb.y + 1]) {
+				WaterBuilding wbRight = new WaterBuilding(wb.x, wb.y + 1, heightMap[wb.x][wb.y + 1], heightMap[wb.x][wb.y + 1]);
+				if (wb.w > wbRight.h) {
+					wbRight.w = wb.w;
+					sum += (wbRight.w - wbRight.h);
 				}
+				dealed[wbRight.x][wbRight.y] = true;
+				queue.add(wbRight);
 			}
+		}
 
-			int res = 0;
-			for (int i = 0; i < m; ++i) {
-				for (int j = 0; j < n; ++j) {
-					res += water[i][j] - heightMap[i][j];
-				}
-			}
-			return res;
+		return sum;
+	}
+
+	private boolean isLegal(int x, int y, int m, int n) {
+		return !(x < 0 || y < 0 || x >= m || y >= n);
+	}
+
+	class WaterBuilding implements Comparable<WaterBuilding> {
+		public int x;
+		public int y;
+		public int h;
+		public int w;
+
+		public WaterBuilding(int x, int y, int h, int w) {
+			this.x = x;
+			this.y = y;
+			this.h = h;
+			this.w = w;
+		}
+
+		@Override
+		public int compareTo(WaterBuilding o) {
+			return w - o.w;
 		}
 	}
+}
 }
 

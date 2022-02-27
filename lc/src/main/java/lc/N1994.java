@@ -1,14 +1,14 @@
-package alc;
+package lc;
 
 import com.google.common.base.Stopwatch;
 
 import java.util.concurrent.*;
 
 /**
- *
- *
+ * 1994. 好子集的数目(3)
+ * https://leetcode-cn.com/problems/the-number-of-good-subsets/
  */
-public class N {
+public class N1994 {
 
 	public static void main(String[] args) {
 		Solution s = new Solution();
@@ -19,5 +19,8 @@ public class N {
 	}
 
 static class Solution {
+		// TODO
+//	public int numberOfGoodSubsets(int[] nums) {
+//	}
 }
 }

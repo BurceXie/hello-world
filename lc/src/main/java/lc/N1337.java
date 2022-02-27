@@ -5,15 +5,15 @@ import java.util.PriorityQueue;
 public class N1337 {
 
 	public static void main(String[] args) {
-		Solution s = new N1337().new Solution();
+		Solution s = new Solution();
 		
 	}
 
-class Solution {
+static class Solution {
     public int[] kWeakestRows(int[][] mat, int k) {
-    	PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+    	PriorityQueue<Integer> pq = new PriorityQueue<>();
     	int row = mat.length, column = mat[0].length;
-    	boolean findZero = false;
+    	boolean findZero;
     	for (int i = 0; i < row; i++) {
     		findZero = false;
     		for (int j = 0; j < column; j++) {

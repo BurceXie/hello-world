@@ -23,7 +23,7 @@ public class N495 {
 class Solution {
 	public int findPoisonedDuration(int[] timeSeries, int duration) {
 		int sum = duration;
-		for (int i = timeSeries.length - 2; i >= 0; i--) {
+		for (int i = 0; i < timeSeries.length - 1; i++) {
 			sum += Math.min(timeSeries[i + 1] - timeSeries[i], duration);
 		}
 		return sum;

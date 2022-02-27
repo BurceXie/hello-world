@@ -10,12 +10,12 @@ import java.util.PriorityQueue;
 public class N14 {
 
 	public static void main(String[] args) {
-		Solution s = new N14().new Solution();
+		Solution s = new Solution();
 
 		System.out.println(Arrays.toString(s.smallestK(new int[] { 1, 2, 3, 4 }, 2)));
 	}
 
-	class Solution {
+	static class Solution {
 		public int[] smallestK(int[] arr, int k) {
 			PriorityQueue<Integer> pq = new PriorityQueue<>();
 			for (int num : arr) {
